@@ -1,6 +1,11 @@
 :root {
   --background: #ffffff;
   --foreground: #171717;
+  --color-brand-primary: #004B93;
+  --color-brand-primary-dark: #00396D;
+  --color-brand-on-primary: #FFFFFF;
+  --color-focus-ring: #82B1FF;
+  --font-body: Arial, Helvetica, sans-serif;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -38,5 +43,125 @@ a {
 @media (prefers-color-scheme: dark) {
   html {
     color-scheme: dark;
+  }
+}
+
+/* Pepsi sections layout */
+.pepsi-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 24px;
+}
+
+.pepsi-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 12px;
+}
+
+.pepsi-card__image {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.pepsi-card__image img {
+  max-width: 220px;
+  height: auto;
+}
+
+.pepsi-card__image--square img {
+  width: 100%;
+  max-width: 100%;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+  border-radius: 12px;
+}
+
+.pepsi-card__title {
+  font-family: var(--font-body);
+  font-size: 18px;
+  color: var(--foreground);
+  text-align: center;
+}
+
+.pepsi-card__cta {
+  margin-top: 4px;
+}
+
+/* Hero */
+.hero {
+  position: relative;
+  min-height: 420px;
+  display: flex;
+  align-items: center;
+  color: var(--color-brand-on-primary);
+  background: var(--color-brand-primary);
+}
+
+.hero__background {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  z-index: 0;
+}
+
+.hero__background-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: brightness(0.6) saturate(1.05);
+}
+
+.hero__overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(0,0,0,0.25), rgba(0,0,0,0.35));
+  z-index: 1;
+}
+
+.hero__content {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  padding: 48px 24px;
+}
+
+.hero__text {
+  max-width: 840px;
+  color: var(--color-brand-on-primary);
+}
+
+.hero__subheadline {
+  margin-bottom: 8px;
+  opacity: 0.95;
+}
+
+.hero__headline {
+  font-size: 48px;
+  line-height: 1.05;
+  margin-bottom: 12px;
+  font-weight: 700;
+}
+
+.hero__body {
+  margin-bottom: 18px;
+  opacity: 0.95;
+}
+
+.hero__button-wrapper {
+  margin-top: 8px;
+}
+
+@media (max-width: 600px) {
+  .hero {
+    min-height: 320px;
+  }
+
+  .hero__headline {
+    font-size: 32px;
   }
 }
