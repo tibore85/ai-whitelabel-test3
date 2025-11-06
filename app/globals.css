@@ -1,6 +1,11 @@
 :root {
   --background: #ffffff;
   --foreground: #171717;
+  --color-brand-primary: #004B93;
+  --color-brand-primary-dark: #00396D;
+  --color-brand-on-primary: #FFFFFF;
+  --color-focus-ring: #82B1FF;
+  --font-body: Arial, Helvetica, sans-serif;
 }
 
 @media (prefers-color-scheme: dark) {
