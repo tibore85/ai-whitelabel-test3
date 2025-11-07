@@ -1,0 +1,22 @@
+/* Global base styles and font application */
+:root {
+  /* ensure theme font variables exist */
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: var(--font-body, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif);
+  color: var(--color-text-primary, #000);
+  background: var(--color-bg-page, #ffffff);
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-heading, var(--font-body));
+  margin: 0;
+}
+
+/* Keep other global rules minimal to avoid overriding component styles */
