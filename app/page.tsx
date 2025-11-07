@@ -10,21 +10,6 @@ function Container({ children, className = '', padding = false }) {
   );
 }
 
-function Button({ children, href, variant = 'solid' }) {
-  const className = `pepsi-button pepsi-button--${variant}`;
-  if (href) {
-    return (
-      <a className={className} href={href}>
-        {children}
-      </a>
-    );
-  }
-  return (
-    <button className={className} type="button">
-      {children}
-    </button>
-  );
-}
 
 function SectionHeader({ headline, subheadline, align = 'center' }) {
   return (
@@ -37,6 +22,22 @@ function SectionHeader({ headline, subheadline, align = 'center' }) {
         />
       )}
     </div>
+  );
+}
+
+function CTAButton({ variant = 'solid', href, children }) {
+  const className = `pepsi-btn pepsi-btn--${variant}`;
+  if (href) {
+    return (
+      <a className={className} href={href}>
+        {children}
+      </a>
+    );
+  }
+  return (
+    <button className={className} type="button">
+      {children}
+    </button>
   );
 }
 
@@ -59,7 +60,7 @@ function Hero({ backgroundImage, subheadline, headline, body, buttonLabel, butto
             {body && <div className="hero__body" dangerouslySetInnerHTML={{ __html: body }} />}
             {buttonLabel && (
               <div className="hero__button-wrapper">
-                <Button variant="inverted" href={buttonHref}>{buttonLabel}</Button>
+                <CTAButton variant="solid" href={buttonHref}>{buttonLabel}</CTAButton>
               </div>
             )}
           </div>
@@ -129,7 +130,7 @@ export default function Home() {
                 </div>
                 <h3 className="pepsi-card__title">{p.title}</h3>
                 <div className="pepsi-card__cta">
-                  <Button variant="outline" href="#">Learn more</Button>
+                  <CTAButton variant="outline" href="#">Learn more</CTAButton>
                 </div>
               </div>
             ))}
@@ -169,16 +170,17 @@ export default function Home() {
 
       <style jsx>{`
         .container-wrapper { max-width: 1140px; margin: 0 auto; }
-        .pepsi-button { display:inline-flex; align-items:center; gap:8px; padding:10px 16px; border-radius:8px; text-decoration:none; }
-        .pepsi-button--solid { background: var(--color-brand-primary); color: var(--color-brand-on-primary); border: 2px solid var(--color-brand-primary); }
-        .pepsi-button--outline { background: transparent; color: var(--color-brand-primary); border: 2px solid var(--color-brand-primary); }
-        .pepsi-button--inverted { background: var(--color-brand-on-primary); color: var(--color-brand-primary); border: 2px solid transparent; }
         .section-header { text-align: center; margin-bottom: 24px; }
         .section-header__title { font-size: 28px; margin-bottom:8px; }
         .site-footer { background: #f7f7f7; padding: 24px 0; margin-top: 40px; }
         .footer__logo { font-weight:700; }
         .footer__links { display:flex; gap:12px; }
         .footer__link { color:inherit; }
+        .pepsi-btn { display:inline-flex; align-items:center; justify-content:center; padding: 12px 24px; border-radius: 999px; text-decoration:none; font-weight:600; transition:background .2s ease,color .2s ease; }
+        .pepsi-btn--solid { background:#0025ff; color:#fff; border:1px solid #0025ff; }
+        .pepsi-btn--solid:hover { background:#001ac2; border-color:#001ac2; }
+        .pepsi-btn--outline { background:transparent; color:#0025ff; border:1px solid #0025ff; }
+        .pepsi-btn--outline:hover { background:#0025ff; color:#fff; }
       `}</style>
     </div>
   );

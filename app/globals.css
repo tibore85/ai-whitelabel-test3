@@ -156,6 +156,88 @@ a {
   margin-top: 8px;
 }
 
+/* Button styles */
+.wl-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 10px 16px;
+  border-radius: 8px;
+  font-family: var(--font-body);
+  font-size: 16px;
+  font-weight: 500;
+  text-decoration: none;
+  border: 2px solid transparent;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  line-height: 1.5;
+}
+
+.wl-button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* Solid variant */
+.wl-button--solid {
+  background: var(--color-brand-primary);
+  color: var(--color-brand-on-primary);
+  border-color: var(--color-brand-primary);
+}
+
+.wl-button--solid:hover:not(:disabled) {
+  background: var(--color-brand-primary-dark);
+  border-color: var(--color-brand-primary-dark);
+}
+
+/* Outline variant */
+.wl-button--outline {
+  background: transparent;
+  color: var(--color-brand-primary);
+  border-color: var(--color-brand-primary);
+}
+
+.wl-button--outline:hover:not(:disabled) {
+  background: var(--color-brand-primary);
+  color: var(--color-brand-on-primary);
+}
+
+/* Text variant */
+.wl-button--text {
+  background: transparent;
+  color: var(--color-brand-primary);
+  border-color: transparent;
+  padding: 8px 12px;
+}
+
+.wl-button--text:hover:not(:disabled) {
+  background: rgba(0, 75, 147, 0.1);
+}
+
+/* Sizes */
+.wl-button--sm {
+  padding: 6px 12px;
+  font-size: 14px;
+}
+
+.wl-button--md {
+  padding: 10px 16px;
+  font-size: 16px;
+}
+
+.wl-button--lg {
+  padding: 14px 24px;
+  font-size: 18px;
+}
+
+/* Icon spacing */
+.wl-button__icon-left,
+.wl-button__icon-right {
+  display: inline-flex;
+  align-items: center;
+}
+
 @media (max-width: 600px) {
   .hero {
     min-height: 320px;
