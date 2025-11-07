@@ -277,6 +277,11 @@ a {
   --color-brand-primary-rgb: 246, 194, 0;
   --color-brand-on-primary: #000000;
   --color-brand-on-primary-rgb: 0, 0, 0;
+  /* Derived brand variants */
+  --color-brand-primary-dark: #c49a00; /* darker yellow */
+  --color-brand-primary-hover: #ffd24d; /* lighter hover */
+  --color-brand-primary-active: #b28700;
+  --color-brand-primary-disabled: #f6e6b5;
 
   --color-bg-page: #FFFFFF;
   --color-bg-page-rgb: 255, 255, 255;
