@@ -20,3 +20,22 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 /* Keep other global rules minimal to avoid overriding component styles */
+
+/* Accessibility overrides: use a darker brand color when brand is used as text on light backgrounds */
+.wysiwyg-content a,
+.product-slider__nav-button,
+.recipe-slider__nav-button,
+.image-section__nav-button,
+.image-section__link-icon,
+.faq__question,
+.faq__icon,
+.button--outline,
+.button--text {
+  color: var(--color-brand-primary-text, var(--color-brand-primary));
+}
+
+/* Ensure focus rings remain visible on bright backgrounds */
+:focus-visible {
+  outline: 2px solid var(--color-focus-ring, #000);
+  outline-offset: 2px;
+}
