@@ -16,8 +16,14 @@
 
 8. **Localize copy and tone.** Adapt headings, body copy, and CTAs to the brand voice and requested language market. Avoid generic lorem ipsum or Pepsi-centric text when theming for another brand.
 
-9. **Swap media intelligently.** If no specific imagery is provided, source royalty-free visuals that match the target brand or product category. Only fall back to the demo `/pepsi/*` assets when explicitly instructed to show the sample kit.
+9. **Respect CMS field contracts.** Do not introduce new text chunks or structural elements beyond the props each component exposes (e.g., SectionHeader only accepts title/subtitle). Content originates from CMS fields that are already defined, so keep HTML markup and prop shapes exactly as implemented in `@dejstdm/white-label-ui`. If a design requires different structure, request a component update instead of patching around it.
 
-10. **Document theme assets per brand.** Whenever you create a new brand theme, commit both the token CSS file and any supplemental overrides, then reference them in `fusion.config.ts` (`designSystem.tokens` / `designSystem.themes`) so Builder knows they exist.
+10. **Preserve accessibility contrast.** When selecting colors, adhere to WCAG AA contrast ratios. Avoid low-contrast combinations (e.g., yellow text on white backgrounds). If the brand palette is light, adjust supporting hues or backgrounds to maintain readability and ensure focus states remain visible.
+
+11. **Update interaction states consistently.** Whenever you override a primary color, also update hover, active, and focus variants so they stay semantically meaningful (e.g., darker shade for hover, outline color tied to the new brand hue). Tokens like `--color-focus-ring` and button modifiers must change together.
+
+12. **Swap media intelligently.** If no specific imagery is provided, source royalty-free visuals that match the target brand or product category. Only fall back to the demo `/pepsi/*` assets when explicitly instructed to show the sample kit.
+
+13. **Document theme assets per brand.** Whenever you create a new brand theme, commit both the token CSS file and any supplemental overrides, then reference them in `fusion.config.ts` (`designSystem.tokens` / `designSystem.themes`) so Builder knows they exist.
 
 Following these rules ensures Builder-generated pages stay aligned with the White Label UI system and remain themeable through the shared token files.
