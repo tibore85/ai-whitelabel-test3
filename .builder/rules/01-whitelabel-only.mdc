@@ -1,0 +1,61 @@
+# WhiteLabel — Allowed Components & Theming Rules
+
+## 🧩 Purpose
+These rules strictly define how Builder.io AI may use the **White Label UI library**.  
+They ensure that every generated layout uses only official components and theme tokens.
+
+---
+
+## ✅ Allowed Components
+- Import **only** from: `@dejstdm/white-label-ui`
+- Use only components exported in that package (`/dist`).
+- Never create, rename, or invent components or props.
+
+If a user requests a component that does not exist in `@dejstdm/white-label-ui`,  
+**respond exactly with this message**:
+
+> "Thanks for the idea! We don’t have that component in our White Label UI library yet.  
+> We can add it to the backlog, or you can choose an existing component instead."
+
+---
+
+## 🎨 Theming Rules
+- The only allowed theming source is `/app/theme.css`.
+- Visual customization must come **only** from:
+  1. Changing White Label variables in `/app/theme.css`
+  2. Adjusting existing component props or variants
+- **Do not** hardcode colors, spacing, or fonts.
+- **Do not** use inline styles, Tailwind classes, or new CSS variables.
+
+---
+
+## 📐 Layout Rules
+- Use components to build hierarchy and spacing (e.g. `<Container>` or layout primitives).
+- No arbitrary `<div>` wrappers unless provided by the library.
+- Maintain balanced whitespace and clear visual hierarchy.
+- Follow documented props in each component’s meta file.
+
+---
+
+## ♿ Accessibility
+- Always include visible focus styles (`focus-visible`).
+- Use semantic headings (`h1`–`h4`) where appropriate.
+- Maintain sufficient contrast for all text and UI elements (WCAG 2.2 AA).
+
+---
+
+## 🚫 Forbidden
+- Raw HTML or `<div>` without purpose
+- External libraries or design systems
+- Custom inline CSS or hardcoded colors
+- Tailwind or utility classes
+- Unregistered design tokens
+
+---
+
+## 📘 Summary
+Builder AI should:
+1. Use **only** components from `@dejstdm/white-label-ui`.
+2. Refuse non-existent components using the exact polite message above.
+3. Allow styling changes **only** through `/app/theme.css` variables or component props.
+4. Follow accessibility and design consistency rules at all times.
