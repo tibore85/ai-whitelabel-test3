@@ -1,8 +1,8 @@
 :root {
   /* Brand palette */
-  --color-brand-primary: #c09b2e;
-  --color-brand-primary-dark:#c09b2e;
-  --color-brand-primary-rgb: 192, 155, 46;
+  --color-brand-primary: #ffd218;
+  --color-brand-primary-dark: #ffd218;
+  --color-brand-primary-rgb: 255, 210, 24;
   --color-brand-on-primary: #0f0f0f;
   --color-brand-on-primary-rgb: 15, 15, 15;
   --color-bg-page: #fff9f0;
@@ -15,8 +15,8 @@
   --color-text-muted-rgb: 107, 90, 64;
   --color-border: #e7d2a3;
   --color-border-rgb: 231, 210, 163;
-  --color-focus-ring: #c09b2e;
-  --color-focus-ring-rgb: 192, 155, 46;
+  --color-focus-ring: #ffd218;
+  --color-focus-ring-rgb: 255, 210, 24;
   --color-success: #3a8c2a;
   --color-success-rgb: 58, 140, 42;
   --color-warning: #d88c21;
