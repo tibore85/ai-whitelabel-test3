@@ -3,11 +3,15 @@
 import React from 'react';
 
 function Container({ children, className = '', padding = false }) {
-  return (
-    <div className={`container-wrapper ${className}`} style={{ padding: padding ? '0 24px' : undefined }}>
-      {children}
-    </div>
-  );
+  const classes = [
+    'container-wrapper',
+    padding ? 'container-wrapper--padded' : '',
+    className,
+  ]
+    .filter(Boolean)
+    .join(' ');
+
+  return <div className={classes}>{children}</div>;
 }
 
 
@@ -74,7 +78,7 @@ function Footer({ links = [], copyright }) {
   return (
     <footer className="site-footer">
       <Container>
-        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', gap: 16 }}>
+        <div className="footer__row">
           <div className="footer__logo">PEPSI</div>
           <nav className="footer__links">
             {links.map((l, i) => (
@@ -82,7 +86,7 @@ function Footer({ links = [], copyright }) {
             ))}
           </nav>
         </div>
-        <div style={{ marginTop: 18, opacity: 0.9 }}>{copyright}</div>
+        <div className="footer__copyright">{copyright}</div>
       </Container>
     </footer>
   );
@@ -115,7 +119,7 @@ export default function Home() {
         buttonHref="#products"
       />
 
-      <section id="products" className="wl-sec" style={{ padding: '48px 0' }}>
+      <section id="products" className="wl-sec section--vpad">
         <Container padding>
           <SectionHeader
             headline="Our Drinks"
@@ -138,7 +142,7 @@ export default function Home() {
         </Container>
       </section>
 
-      <section id="recipes" className="wl-sec" style={{ padding: '48px 0' }}>
+      <section id="recipes" className="wl-sec section--vpad">
         <Container padding>
           <SectionHeader
             headline="Serve with Pepsi"
@@ -168,20 +172,6 @@ export default function Home() {
         copyright={`© ${new Date().getFullYear()} PEPSI`}
       />
 
-      <style jsx>{`
-        .container-wrapper { max-width: 1140px; margin: 0 auto; }
-        .section-header { text-align: center; margin-bottom: 24px; }
-        .section-header__title { font-size: 28px; margin-bottom:8px; }
-        .site-footer { background: #f7f7f7; padding: 24px 0; margin-top: 40px; }
-        .footer__logo { font-weight:700; }
-        .footer__links { display:flex; gap:12px; }
-        .footer__link { color:inherit; }
-        .pepsi-btn { display:inline-flex; align-items:center; justify-content:center; padding: 12px 24px; border-radius: 999px; text-decoration:none; font-weight:600; transition:background .2s ease,color .2s ease; }
-        .pepsi-btn--solid { background:#0025ff; color:#fff; border:1px solid #0025ff; }
-        .pepsi-btn--solid:hover { background:#001ac2; border-color:#001ac2; }
-        .pepsi-btn--outline { background:transparent; color:#0025ff; border:1px solid #0025ff; }
-        .pepsi-btn--outline:hover { background:#0025ff; color:#fff; }
-      `}</style>
     </div>
   );
 }
