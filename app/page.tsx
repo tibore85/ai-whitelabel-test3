@@ -1,115 +1,88 @@
-"use client";
+import type { JSX } from 'react';
+import { NavBar, Hero, ProductSlider, TextSection, ImageSection, FAQ, Footer } from '@dejstdm/white-label-ui';
 
-import React from 'react';
+const navItems = [
+  { label: 'Home', href: '/' },
+  { label: 'Products', href: '#products' },
+  { label: 'Gallery', href: '#gallery' },
+  { label: 'FAQ', href: '#faq' },
+];
 
-function Container({ children, className = '', padding = false }) {
-  const classes = [
-    'container-wrapper',
-    padding ? 'container-wrapper--padded' : '',
-    className,
-  ]
-    .filter(Boolean)
-    .join(' ');
+const productSlides = [
+  {
+    id: 'classic',
+    image: '/pepsi/cans/REG.png',
+    imageAlt: 'Pepsi Classic can',
+    title: 'Pepsi Classic',
+    description: '<p>Balanced sweetness with crisp carbonation built for everyday sipping.</p>',
+    buttonLabel: 'View classic',
+    buttonHref: '#classic',
+  },
+  {
+    id: 'diet',
+    image: '/pepsi/cans/DIET.png',
+    imageAlt: 'Pepsi Diet can',
+    title: 'Pepsi Diet',
+    description: '<p>Zero-sugar refreshment powered by the same bold cola profile.</p>',
+    buttonLabel: 'View diet',
+    buttonHref: '#diet',
+  },
+  {
+    id: 'mango',
+    image: '/pepsi/cans/MANGO.png',
+    imageAlt: 'Pepsi Mango can',
+    title: 'Pepsi Mango',
+    description: '<p>Tropical mango aroma layered over the signature Pepsi bite.</p>',
+    buttonLabel: 'View mango',
+    buttonHref: '#mango',
+  },
+  {
+    id: 'lime',
+    image: '/pepsi/cans/LIME.png',
+    imageAlt: 'Pepsi Lime can',
+    title: 'Pepsi Lime',
+    description: '<p>Zesty citrus twist that keeps tasting sessions bright and lively.</p>',
+    buttonLabel: 'View lime',
+    buttonHref: '#lime',
+  },
+];
 
-  return <div className={classes}>{children}</div>;
-}
+const galleryImages = [
+  { id: 'churros', src: '/pepsi/recipes/Churros.jpg', alt: 'Churros' },
+  { id: 'meatballs', src: '/pepsi/recipes/Meatballs.jpg', alt: 'Meatballs' },
+  { id: 'pancakes', src: '/pepsi/recipes/Pancakes.jpg', alt: 'Pancakes' },
+  { id: 'chicken-rice', src: '/pepsi/recipes/ChickenRice.jpg', alt: 'Chicken Rice' },
+];
 
+const faqItems = [
+  {
+    id: 'ingredients',
+    question: 'What ingredients are used in Pepsi products?',
+    answer: '<p>Each variant uses a unique formula. Please refer to the can label for exact ingredients and nutrition information.</p>',
+  },
+  {
+    id: 'availability',
+    question: 'Where can I find these flavors?',
+    answer: '<p>Availability varies by region and retailer. Check your local stores or online grocery delivery apps.</p>',
+  },
+  {
+    id: 'storage',
+    question: 'How should I store unopened cans?',
+    answer: '<p>Store in a cool, dry place away from direct sunlight. Best served chilled.</p>',
+  },
+];
 
-function SectionHeader({ headline, subheadline, align = 'center' }) {
+const BrandMark = (): JSX.Element => (
+  <div className="wl-footer-logo" aria-label="White Label UI">
+    <strong>WL Labs</strong>
+  </div>
+);
+
+export default function Home(): JSX.Element {
   return (
-    <div className={`section-header section-header--${align}`}>
-      {headline && <h2 className="section-header__title">{headline}</h2>}
-      {subheadline && (
-        <div
-          className="section-header__sub"
-          dangerouslySetInnerHTML={{ __html: subheadline }}
-        />
-      )}
-    </div>
-  );
-}
+    <>
+      <NavBar logo={<BrandMark />} items={navItems} sticky />
 
-function CTAButton({ variant = 'solid', href, children }) {
-  const className = `pepsi-btn pepsi-btn--${variant}`;
-  if (href) {
-    return (
-      <a className={className} href={href}>
-        {children}
-      </a>
-    );
-  }
-  return (
-    <button className={className} type="button">
-      {children}
-    </button>
-  );
-}
-
-function Hero({ backgroundImage, subheadline, headline, body, buttonLabel, buttonHref }) {
-  return (
-    <section className="hero">
-      {backgroundImage && (
-        <div className="hero__background" aria-hidden>
-          <img src={backgroundImage} alt="" className="hero__background-image" />
-          <div className="hero__overlay" />
-        </div>
-      )}
-      <div className="hero__content">
-        <Container padding>
-          <div className="hero__text">
-            {subheadline && (
-              <div className="hero__subheadline" dangerouslySetInnerHTML={{ __html: subheadline }} />
-            )}
-            {headline && <div className="hero__headline">{headline}</div>}
-            {body && <div className="hero__body" dangerouslySetInnerHTML={{ __html: body }} />}
-            {buttonLabel && (
-              <div className="hero__button-wrapper">
-                <CTAButton variant="solid" href={buttonHref}>{buttonLabel}</CTAButton>
-              </div>
-            )}
-          </div>
-        </Container>
-      </div>
-    </section>
-  );
-}
-
-function Footer({ links = [], copyright }) {
-  return (
-    <footer className="site-footer">
-      <Container>
-        <div className="footer__row">
-          <div className="footer__logo">PEPSI</div>
-          <nav className="footer__links">
-            {links.map((l, i) => (
-              <a key={i} className="footer__link" href={l.href || '#'}>{l.label}</a>
-            ))}
-          </nav>
-        </div>
-        <div className="footer__copyright">{copyright}</div>
-      </Container>
-    </footer>
-  );
-}
-
-export default function Home() {
-  const products = [
-    { title: "Pepsi", image: "/pepsi/cans/REG.png" },
-    { title: "Pepsi Max", image: "/pepsi/cans/MAX.png" },
-    { title: "Diet Pepsi", image: "/pepsi/cans/DIET.png" },
-    { title: "Pepsi Lime", image: "/pepsi/cans/LIME.png" },
-    { title: "Pepsi Mango", image: "/pepsi/cans/MANGO.png" },
-  ];
-
-  const recipes = [
-    { title: "Churros", image: "/pepsi/recipes/Churros.jpg" },
-    { title: "Meatballs", image: "/pepsi/recipes/Meatballs.jpg" },
-    { title: "Pancakes", image: "/pepsi/recipes/Pancakes.jpg" },
-    { title: "Chicken Rice", image: "/pepsi/recipes/ChickenRice.jpg" },
-  ];
-
-  return (
-    <div>
       <Hero
         backgroundImage="/pepsi/images/hero.jpg"
         subheadline="<p>Bold taste, zero sugar</p>"
@@ -119,59 +92,53 @@ export default function Home() {
         buttonHref="#products"
       />
 
-      <section id="products" className="wl-sec section--vpad">
-        <Container padding>
-          <SectionHeader
-            headline="Our Drinks"
-            subheadline="<p>Pick your flavour</p>"
-            align="center"
-          />
-          <div className="pepsi-grid">
-            {products.map((p) => (
-              <div key={p.title} className="pepsi-card">
-                <div className="pepsi-card__image">
-                  <img src={p.image} alt={p.title} loading="lazy" />
-                </div>
-                <h3 className="pepsi-card__title">{p.title}</h3>
-                <div className="pepsi-card__cta">
-                  <CTAButton variant="outline" href="#">Learn more</CTAButton>
-                </div>
-              </div>
-            ))}
-          </div>
-        </Container>
-      </section>
-
-      <section id="recipes" className="wl-sec section--vpad">
-        <Container padding>
-          <SectionHeader
-            headline="Serve with Pepsi"
-            subheadline="<p>Try these favourites</p>"
-            align="center"
-          />
-          <div className="pepsi-grid pepsi-grid--recipes">
-            {recipes.map((r) => (
-              <div key={r.title} className="pepsi-card pepsi-card--recipe">
-                <div className="pepsi-card__image pepsi-card__image--square">
-                  <img src={r.image} alt={r.title} loading="lazy" />
-                </div>
-                <h3 className="pepsi-card__title">{r.title}</h3>
-              </div>
-            ))}
-          </div>
-        </Container>
-      </section>
-
-      <Footer
-        links={[
-          { label: "Contact" },
-          { label: "Privacy" },
-          { label: "Cookies" },
-          { label: "Terms" },
-        ]}
-        copyright={`© ${new Date().getFullYear()} PEPSI`}
+      <ProductSlider
+        id="products"
+        headline="Our Drinks"
+        subheadline="<p>Pick your flavour</p>"
+        products={productSlides}
+        containerBreakpoint="lg"
+        className="wl-section"
       />
 
-    </div>
+      <TextSection
+        id="about"
+        headline="Crafted for refreshment"
+        subheadline="<p>Great taste, right when you want it</p>"
+        text="<p>From classic cola to bold, fruit-forward twists, there’s a Pepsi built for every moment. Enjoy it ice-cold on its own or pair it with your favorite dishes.</p>"
+        containerBreakpoint="md"
+        className="wl-section"
+      />
+
+      <ImageSection
+        id="gallery"
+        headline="Serve with Pepsi"
+        subheadline="<p>Try these favorites</p>"
+        images={galleryImages}
+        containerBreakpoint="md"
+        className="wl-section"
+      />
+
+      <FAQ
+        id="faq"
+        headline="Frequently asked questions"
+        subheadline="<p>Quick answers about our drinks</p>"
+        items={faqItems}
+        containerBreakpoint="md"
+        className="wl-section"
+      />
+
+      <Footer
+        logo={<BrandMark />}
+        links={[
+          { label: 'Contact', href: '#' },
+          { label: 'Privacy', href: '#' },
+          { label: 'Cookies', href: '#' },
+          { label: 'Terms', href: '#' },
+        ]}
+        copyright={new Date().getFullYear().toString()}
+        copyrightYear={new Date().getFullYear().toString()}
+      />
+    </>
   );
 }
