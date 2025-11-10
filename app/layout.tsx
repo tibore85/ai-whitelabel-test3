@@ -5,7 +5,6 @@ import "@dejstdm/white-label-ui/dist/style.css";
 import "@dejstdm/white-label-ui/themes/lays/dist/theme.css";
 import "swiper/css";
 import "swiper/css/navigation";
-import "./theme.css";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
