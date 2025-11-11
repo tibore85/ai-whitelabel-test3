@@ -1,6 +1,6 @@
 "use client";
 import type { JSX } from "react";
-import { NavBar, Hero, ProductSlider, Footer } from "@dejstdm/white-label-ui";
+import { NavBar, Hero, ProductSlider, FAQ, Footer } from "@dejstdm/white-label-ui";
 import laysLogo from "@/public/lays-logo.png";
 
 const navItems = [
@@ -54,6 +54,24 @@ const productSlides = [
   },
 ];
 
+const faqItems = [
+  {
+    id: 'ingredients',
+    question: 'What ingredients are used in Lay\'s products?',
+    answer: '<p>Each variant uses a unique formula. Please refer to the package label for exact ingredients and nutrition information.</p>',
+  },
+  {
+    id: 'availability',
+    question: 'Where can I find these flavors?',
+    answer: '<p>Availability varies by region and retailer. Check your local stores or online grocery delivery apps.</p>',
+  },
+  {
+    id: 'storage',
+    question: 'How should I store unopened packages?',
+    answer: '<p>Store in a cool, dry place away from direct sunlight and heat. Best enjoyed fresh.</p>',
+  },
+];
+
 export default function FAQPage(): JSX.Element {
   return (
     <>
@@ -68,6 +86,14 @@ export default function FAQPage(): JSX.Element {
         subheadline="<p>Discover our flavors</p>"
         products={productSlides}
         containerBreakpoint="lg"
+        className="wl-section"
+      />
+      <FAQ
+        id="faq"
+        headline="Frequently asked questions"
+        subheadline="<p>Quick answers about our products</p>"
+        items={faqItems}
+        containerBreakpoint="md"
         className="wl-section"
       />
       <Footer
