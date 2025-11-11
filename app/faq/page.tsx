@@ -91,6 +91,7 @@ export default function FAQPage(): JSX.Element {
       <TextSection
         id="offers"
         headline="Explore our special offers"
+        text="<p>Discover incredible deals on our most popular snacks and flavors. Limited time offers available for a wide variety of tastes.</p>"
         containerBreakpoint="md"
         className="wl-section"
       />
