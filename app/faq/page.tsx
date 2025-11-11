@@ -25,7 +25,7 @@ export default function FAQPage(): JSX.Element {
       <NavBar logoSrc={logoSrc} logoAlt={logoAlt} items={navItems} />
       <Hero
         headline="Lay's snacks"
-        backgroundImage="https://www.lays.fr/prod/s3fs-public/2025-06/banner2%20horrizontal%20copy2.png"
+        backgroundImage="https://www.lays.de/prod/s3fs-public/2025-06/Lays_UCL_Podolski_MaxProbiert_Black_KV%202.jpg"
       />
       <Footer
         logoSrc={logoSrc}
