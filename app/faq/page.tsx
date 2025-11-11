@@ -1,6 +1,6 @@
 "use client";
 import type { JSX } from "react";
-import { NavBar, Hero, ProductSlider, FAQ, Footer } from "@dejstdm/white-label-ui";
+import { NavBar, Hero, ProductSlider, TextSection, FAQ, Footer } from "@dejstdm/white-label-ui";
 import laysLogo from "@/public/lays-logo.png";
 
 const navItems = [
@@ -86,6 +86,12 @@ export default function FAQPage(): JSX.Element {
         subheadline="<p>Discover our flavors</p>"
         products={productSlides}
         containerBreakpoint="lg"
+        className="wl-section"
+      />
+      <TextSection
+        id="offers"
+        headline="Explore our special offers"
+        containerBreakpoint="md"
         className="wl-section"
       />
       <FAQ
